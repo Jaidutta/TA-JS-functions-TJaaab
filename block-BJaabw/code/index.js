@@ -11,8 +11,9 @@ minToSec(2) ➞ 120
 */
 
 // - Write a Function Decleration for above problem
-function minToSec() {
+function minToSec(min) {
   // Your code
+  return min * 60;
 }
 // - Execute the function with required parameter
 
@@ -26,8 +27,13 @@ isInRange(1, 10, 19); // false
 */
 
 // - Write a Function Decleration for above problem
-function isInRange() {
+function isInRange(lowerLimit, upperLimit, number) {
   // Your code
+  if (number >= lowerLimit && number <= upperLimit) {
+    return true;
+  } else {
+    return false;
+  }
 }
 // - Execute the function with required parameter
 
@@ -49,8 +55,18 @@ Obese: BMI is 30 or more
 
 */
 
-function calculateBMI() {
+function calculateBMI(weight, height) {
   // Your code
+  const bmi = weight / (height * height);
+  if (bmi >= 30) {
+    return "Obese";
+  } else if (bmi >= 25 && bmi <= 29.9) {
+    return "Overweight";
+  } else if (bmi >= 18.5 && bmi <= 24.9) {
+    return "Normal weight";
+  } else if (bmi < 18.5) {
+    return "Underweight";
+  }
 }
 
 /* 3. appropiateDrinks
@@ -64,8 +80,22 @@ Create a function that take the age are return the appropiate drink based on the
 
 */
 
-function appropiateDrinks() {
+function appropiateDrinks(age) {
   // Your code
+  switch (true) {
+    case age < 14:
+      return "drink fruit soda";
+      break;
+    case age < 18:
+      return "drink soda";
+      break;
+    case age < 21:
+      return "drink fruit-flavoured beer";
+      break;
+    case age > 21:
+      return "drink throat-piercing vodka";
+      break;
+  }
 }
 
 /* 4. Add two numers or string
@@ -79,13 +109,20 @@ Twist is when user passes anything other than number, or string value you should
 
 */
 
-function sum() {
+function sum(input1, input2) {
   // Your code
+  if(typeof input1 ==="number" && typeof input2 === "number") {
+    return input1 + input2
+  } else if(typeof input1 ==="string" && typeof input2 === "string") {
+    return input1 + " " + input2
+  } else {
+    return "Enter valid Values"
+  }
 }
 
 // Function Test
 sum(2, 4); // 4
-sum('Arya', 'Stark'); // "Arya Stark"
-sum('Arya', 2); // Enter valid Values
+sum("Arya", "Stark"); // "Arya Stark"
+sum("Arya", 2); // Enter valid Values
 sum(null, 2); // Enter valid Values
 sum(undefined, 2); // Enter valid Values
